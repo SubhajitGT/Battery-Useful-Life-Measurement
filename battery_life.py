@@ -1,11 +1,12 @@
 import streamlit as st
 import pickle
+import gzip
 import numpy as np
 
 def main():
     st.title('Battery Life Prediction :battery: -->')
 
-    with open('random_forest_model_Decrement_3.6_3.4V_and_4.15V.pkl', 'rb') as file:
+    with gzip.open('random_forest_model_Decrement_3.6_3.4V_and_4.15V.pkl.gz', 'rb') as file:
         loaded_model = pickle.load(file)
 
     num1 = st.number_input("Enter **Decrement 3.6-3.4V (s)** value")
