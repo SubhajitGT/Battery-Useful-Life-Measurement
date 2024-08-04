@@ -6,17 +6,17 @@ import numpy as np
 def main():
     st.title('Battery Life Prediction :battery: -->')
 
-    with gzip.open('random_forest_model_Decrement_3.6_3.4V_and_4.15V.pkl.gz', 'rb') as file:
+    with gzip.open('random_forest_comp_best_model.pkl.gz', 'rb') as file:
         loaded_model = pickle.load(file)
 
-    num1 = st.number_input("Enter **Decrement 3.6-3.4V (s)** value")
-    st.write("The time it takes for the battery voltage to drop from 3.6V to 3.4V during discharge.")
-    num2 = st.number_input("Enter **Max. Voltage Dischar. (V)** value")
+    num1 = st.number_input("Enter **Cycle_Index** value")
+    st.write("The number of charge-discharge cycles the battery has undergone.")
+    num2 = st.number_input("Enter **Discharge Time (s)** value")
+    st.write("The total time the battery takes to discharge during a cycle.")
+    num3 = st.number_input("Enter **Max. Voltage Dischar. (V)** value")
     st.write("The maximum voltage reached during the discharge phase.")
-    num3 = st.number_input("Enter **Min. Voltage Charg. (V)** value")
+    num4 = st.number_input("Enter **Min. Voltage Charg. (V)** value")
     st.write("The minimum voltage reached during the charge phase.")
-    num4 = st.number_input("Enter **Time at 4.15V (s)** value")
-    st.write("The duration for which the battery stays at a specific voltage (4.15V) during the charging or discharging process")
 
     error_message = st.empty()
     def inputs_are_valid():
